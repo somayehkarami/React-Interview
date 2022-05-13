@@ -1,0 +1,18 @@
+const Navbar = () => {
+  return (
+    //Dynamic value ==> style={{
+    /* color: "white",
+            backgroundColor: "#f1356d",
+            borderRadius: "8px",*/
+
+    <nav className="navbar">
+      <h1>The Doja Blog</h1>
+      <div className="links">
+        <a href="/">Home</a>
+        <a href="/create">New Blog</a>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
