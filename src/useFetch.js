@@ -29,7 +29,7 @@ const useFetch = (url) => {
           //console.log(err.message);
           setError(err.message);
         });
-    }, 1000); //after one second perform the fetch
+    }, 1000);
   }, [url]); //once the url changed rerun the function
 
   return { data, isPending, error };
