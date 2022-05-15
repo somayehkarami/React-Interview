@@ -1,12 +1,9 @@
-import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
+import useFetch from "./useFetch";
 
 //npx json-server --watch data/db.json --port 8000
 
 const Home = () => {
-  const [blogs, setBlogs] = useState(null);
-  const [isPending, setIsPending] = useState(true);
-
   /*const handleDelete = (id) => {
     const newBlogs = blogs.filter((blog) => blog.id !== id);
     setBlogs(newBlogs);
@@ -14,32 +11,14 @@ const Home = () => {
 
   //fetch the data once when the component first renders
 
-  useEffect(() => {
-    setTimeout(() => {
-      fetch("http://localhost:8000/blogs") //endpoint from the json file(get request)
-        //this returns to us a promise we need to use then method
-        .then((res) => {
-          //res is an object that has an ok property
-          if (!res.ok) {
-            throw Error("could not fetch the data :)");
-          }
-          return res.json(); //to get the data passes the jason into a javascript object(this is asynchronus it takes some times to do)
-        })
-        .then((data) => {
-          //takes another promise
-          //console.log(data);
-          setBlogs(data);
-          setIsPending(false);
-        })
-        .catch((err) => {
-          //handel any network error
-          console.log(err.message);
-        });
-    }, 1000); //after one second perform the fetch
-  }, []);
-
+  const {
+    data: blogs,
+    isPending,
+    error,
+  } = useFetch("http://localhost:8000/blogs");
   return (
     <div className="home">
+      {error && <div>{error}</div>}
       {isPending && <div>Loading...</div>}
       {blogs && <BlogList blogs={blogs} title="All Blogs" />}
     </div>
@@ -56,3 +35,12 @@ export default Home;
 
 //If present, effect will only activate if the values in the list change.[]
 //Accepts a function that contains imperative, possibly effectful code.
+
+//Why and When To Use Custom Hooks *************
+//The main reason to write a custom hook is for code reusability.
+//For example, instead of writing the same code across multiple components
+// that use the same common stateful logic (say a “setState” or localStorage logic),
+//you can put that code inside a custom hook and reuse it.
+
+//ROUTER***********
+//npm install react-router-dom@5
