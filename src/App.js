@@ -2,6 +2,8 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Create from "./Create";
+import BlogDetails from "./BlogDetails";
+import NotFound from "./NotFound";
 
 /*function App() {
   const title = "Welcome to the new blog";
@@ -37,6 +39,8 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
             <Route path="/create" element={<Create />}></Route>
+            <Route path="/blogs/:id" element={<BlogDetails />}></Route>
+            <Route path="*" element={<NotFound />}></Route>
           </Routes>
         </div>
       </div>
@@ -48,3 +52,4 @@ export default App;
 
 //Switch component makes sure that only one route shows at one time.
 //<Navbar/> always is going to show because is not inside this switch is for every single route
+//path="*"> catch any other route

@@ -6,8 +6,10 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const abortCount = new AbortController();
+
     setTimeout(() => {
-      fetch(url) //endpoint from the json file(get request)
+      fetch(url, { signal: abortCount.signal }) //endpoint from the json file(get request)
         //this returns to us a promise we need to use then method
         .then((res) => {
           //res is an object that has an ok property
@@ -30,6 +32,7 @@ const useFetch = (url) => {
           setError(err.message);
         });
     }, 1000);
+    return () => abortCount.abort();
   }, [url]); //once the url changed rerun the function
 
   return { data, isPending, error };
