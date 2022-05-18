@@ -63,7 +63,7 @@ const Create = () => {
 export default Create;
 
 //inside handleSubmite function the first thing is to prevent
-// the default action of the form beign submitted by using e.preventDefault() method
+//the default action of the form beign submitted by using e.preventDefault() method
 //and it does not refresh the page
 
 //second we need a blog object and is going to be saved in db.js file
