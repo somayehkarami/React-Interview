@@ -1,16 +1,7 @@
 import BlogList from "./BlogList";
 import useFetch from "./useFetch";
 
-//npx json-server --watch data/db.json --port 8000
-
 const Home = () => {
-  /*const handleDelete = (id) => {
-    const newBlogs = blogs.filter((blog) => blog.id !== id);
-    setBlogs(newBlogs);
-  };*/
-
-  //fetch the data once when the component first renders
-
   const {
     data: blogs,
     isPending,
@@ -24,7 +15,6 @@ const Home = () => {
     </div>
   );
 };
-//null evaluates to false
 
 export default Home;
 //A Promise is in one of these states:
@@ -42,5 +32,9 @@ export default Home;
 // that use the same common stateful logic (say a “setState” or localStorage logic),
 //you can put that code inside a custom hook and reuse it.
 
+//null evaluates to false
+
 //ROUTER***********
-//npm install react-router-dom@5
+//npm install react-router-dom@6
+
+////npx json-server --watch data/db.json --port 8000

@@ -10,6 +10,9 @@ root.render(
   </React.StrictMode>
 );
 
+//this is a file kickstart our app takeing care of
+//all component and mounting them to the dom
+
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
