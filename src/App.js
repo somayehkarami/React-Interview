@@ -5,16 +5,6 @@ import Create from "./Create";
 import BlogDetails from "./BlogDetails";
 import NotFound from "./NotFound";
 
-/*function App() {
-  const title = "Welcome to the new blog";
-  const likes = 50;
-  const link = "http://www.google.com";
-  //const person = { name: "yoshi", age: 20 };
-  //you cannot output the object and boolean but number and string is fine.
-  //output the array as a string.
-  //output this as a string <p>{Math.random() * 10}</p>
- 
-*/
 function App() {
   return (
     <Router>
@@ -35,6 +25,12 @@ function App() {
 
 export default App;
 
-//Switch component makes sure that only one route shows at one time.
-//<Navbar/> always is going to show because is not inside this switch is for every single route
+//<Navbar/> always is going to show because is not inside this Routes is for every single route
 //path="*"> catch any other route
+
+////ROUTER***********
+//npm install react-router-dom@6
+
+//we suround entiire application with router component
+// we can use the router in the entire application all component
+//that nested inside this app.js component

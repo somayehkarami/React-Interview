@@ -15,7 +15,7 @@ const Home = () => {
     </div>
   );
 };
-
+//blogs={blogs} this is props
 export default Home;
 //A Promise is in one of these states:
 

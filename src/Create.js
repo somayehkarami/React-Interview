@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Create = () => {
+  //set up state for storing enter data
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("mario");
@@ -11,33 +12,36 @@ const Create = () => {
   const handleSubmit = (e) => {
     //taking event object automatically
     e.preventDefault(); //that prevents the page from being refreshing
-    const blog = { title, body, author };
+    const blog = { title, body, author }; //create a blog object is going to be saved in json file
     console.log(blog);
     //after try submit the form when making the request
     setIsPending(true);
 
     fetch("http://localhost:8000/blogs", {
+      //secon argument
       method: "POST",
       headers: { "Content-type": "application/json" }, //telling the server the type of content (json  data)
       body: JSON.stringify(blog), //use stringify to pass the object to a json string
     }).then(() => {
       console.log("new blog added");
       setIsPending(false);
-      //history.go(-1); //-1 go back one setp through  history
       navigate("/");
     });
   };
-
+  //react to submit event
   return (
     <div className="create">
       <h2>Add a New Blog</h2>
+
+      {/*************Submit*************/}
       <form onSubmit={handleSubmit}>
         <label>Blog title:</label>
         <input
           type="text"
           required
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={title} //associate this usestate value with value of this input
+          onChange={(e) => setTitle(e.target.value)} //onChange event to update the title
+          //target here is this input
         />
         <label>Blog body:</label>
         <textarea
@@ -52,9 +56,9 @@ const Create = () => {
         </select>
         {!isPending && <button>Add Blog</button>}
         {isPending && <button disabled>Adding Blog...</button>}
-        <p>{title}</p>
+        {/*<p>{title}</p>
         <p>{body}</p>
-        <p>{author}</p>
+  <p>{author}</p>*/}
       </form>
     </div>
   );

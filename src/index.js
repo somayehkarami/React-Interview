@@ -11,7 +11,7 @@ root.render(
 );
 
 //this is a file kickstart our app takeing care of
-//all component and mounting them to the dom
+//all component and rendering  them to the dom
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
